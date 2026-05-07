@@ -7,8 +7,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import ru.neocode.neocode.dto.Role;
 import ru.neocode.neocode.entity.User;
-import ru.neocode.neocode.entity.UserRegionSettings;
-import ru.neocode.neocode.service.UserRegionSettingsService;
 import ru.neocode.neocode.service.UserService;
 
 import java.util.Optional;
@@ -19,7 +17,6 @@ import java.util.Optional;
 public class UserController {
 
     private final UserService userService;
-    private final UserRegionSettingsService regionSettingsService;
 
     @GetMapping(params = "id")
     public Optional<User> findUserById(@RequestParam(name = "id") long id) {
@@ -29,12 +26,6 @@ public class UserController {
     @GetMapping(params = "name")
     public Optional<User> findUserByUsername(@RequestParam(name = "name") String username) {
         return this.userService.findUserByUsername(username);
-    }
-
-    @GetMapping(params = "id")
-    public ResponseEntity<UserRegionSettings> findRegionSettingsById(@RequestParam(name = "id") long id) {
-        Optional<UserRegionSettings> userRegionSettings = regionSettingsService.findUserRegionSettingsById(id);
-        return userRegionSettings.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PreAuthorize("hasRole('DEVELOPER')")
