@@ -1,13 +1,14 @@
 package ru.neocode.neocode.service;
 
-import org.springframework.http.ResponseEntity;
 import ru.neocode.neocode.dto.request.ConfirmLinkSessionRequest;
 import ru.neocode.neocode.dto.request.CreateLinkSessionRequest;
+import ru.neocode.neocode.dto.response.LinkSessionResponse;
+import ru.neocode.neocode.response.ApiResponse;
 
 public interface UserSocialLinksService {
 
-    ResponseEntity<String> createSession(CreateLinkSessionRequest request);
+    ApiResponse<LinkSessionResponse> createSession(CreateLinkSessionRequest request);
 
-    ResponseEntity<String> confirmSession(ConfirmLinkSessionRequest request);
+    ApiResponse<Void> confirmSession(ConfirmLinkSessionRequest request);
 
 }

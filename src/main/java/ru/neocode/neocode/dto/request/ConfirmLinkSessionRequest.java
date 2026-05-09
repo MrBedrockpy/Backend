@@ -1,14 +1,15 @@
 package ru.neocode.neocode.dto.request;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import ru.neocode.neocode.entity.LinkSession;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-@Data
+@Getter
+@NoArgsConstructor
 @AllArgsConstructor
 public class ConfirmLinkSessionRequest {
 
-    private final String sessionId;
-    private final long telegramId;
+    private String sessionId;
+    private long telegramId;
 
 }

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.neocode.neocode.dto.request.ConfirmLinkSessionRequest;
 import ru.neocode.neocode.dto.request.CreateLinkSessionRequest;
+import ru.neocode.neocode.dto.response.LinkSessionResponse;
+import ru.neocode.neocode.response.ApiResponse;
 import ru.neocode.neocode.service.UserSocialLinksService;
 
 @RestController
@@ -18,12 +20,12 @@ public class SocialLinkController {
     private final UserSocialLinksService service;
 
     @PostMapping("/telegram/link")
-    public ResponseEntity<String> linkTelegram(@RequestBody CreateLinkSessionRequest request) {
-        return this.service.createSession(request);
+    public ResponseEntity<ApiResponse<LinkSessionResponse>> linkTelegram(@RequestBody CreateLinkSessionRequest request) {
+        return this.service.createSession(request).toEntity();
     }
 
     @PostMapping("/telegram/confirm")
-    public ResponseEntity<String> confirmTelegram(@RequestBody ConfirmLinkSessionRequest request) {
-        return this.service.confirmSession(request);
+    public ResponseEntity<ApiResponse<Void>> confirmTelegram(@RequestBody ConfirmLinkSessionRequest request) {
+        return this.service.confirmSession(request).toEntity();
     }
 }

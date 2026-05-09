@@ -1,8 +1,12 @@
 package ru.neocode.neocode.dto.request;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-@Data
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class RegisterRequest {
 
     private String username;

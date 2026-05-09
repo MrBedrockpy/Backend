@@ -1,22 +1,22 @@
 package ru.neocode.neocode.service;
 
+import ru.neocode.neocode.dto.response.AuthResponse;
+import ru.neocode.neocode.dto.request.ChangeRoleRequest;
 import ru.neocode.neocode.dto.request.LoginRequest;
 import ru.neocode.neocode.dto.request.RegisterRequest;
-import ru.neocode.neocode.dto.Role;
 import ru.neocode.neocode.entity.User;
-
-import java.util.Optional;
+import ru.neocode.neocode.response.ApiResponse;
 
 public interface UserService {
 
-    String login(LoginRequest request);
+    ApiResponse<AuthResponse> login(LoginRequest request);
 
-    boolean register(RegisterRequest request);
+    ApiResponse<AuthResponse> register(RegisterRequest request);
 
-    Optional<User> findUserById(long id);
+    ApiResponse<User> findUserById(long id);
 
-    Optional<User> findUserByUsername(String username);
+    ApiResponse<User> findUserByUsername(String username);
 
-    boolean changeRole(User user, Role role);
+    ApiResponse<Void> changeRole(ChangeRoleRequest request);
 
 }

@@ -1,13 +1,12 @@
 package ru.neocode.neocode.service;
 
 import ru.neocode.neocode.entity.UserRegionSettings;
-
-import java.util.Optional;
+import ru.neocode.neocode.response.ApiResponse;
 
 public interface UserRegionSettingsService {
 
-    Optional<UserRegionSettings> findUserRegionSettingsById(long id);
+    ApiResponse<UserRegionSettings> findUserRegionSettingsById(long id);
 
-    boolean save(UserRegionSettings settings);
+    ApiResponse<Void> save(UserRegionSettings settings);
 
 }
