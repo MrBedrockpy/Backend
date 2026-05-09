@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import ru.neocode.neocode.dto.request.ChangeRoleRequest;
+import ru.neocode.neocode.dto.response.UserResponse;
 import ru.neocode.neocode.entity.User;
 import ru.neocode.neocode.response.ApiResponse;
 import ru.neocode.neocode.service.UserService;
@@ -17,12 +18,12 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping(params = "id")
-    public ResponseEntity<ApiResponse<User>> findUserById(@RequestParam(name = "id") long id) {
+    public ResponseEntity<ApiResponse<UserResponse>> findUserById(@RequestParam(name = "id") long id) {
         return this.userService.findUserById(id).toEntity();
     }
 
     @GetMapping(params = "name")
-    public ResponseEntity<ApiResponse<User>> findUserByUsername(@RequestParam(name = "name") String username) {
+    public ResponseEntity<ApiResponse<UserResponse>> findUserByUsername(@RequestParam(name = "name") String username) {
         return this.userService.findUserByUsername(username).toEntity();
     }
 

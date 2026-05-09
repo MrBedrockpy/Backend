@@ -14,6 +14,11 @@ public class GlobalExceptionHandler {
         return ApiResponse.<Void>error(ApiError.internal(ex.getMessage())).toEntity();
     }
 
+    @ExceptionHandler(Throwable.class)
+    public ResponseEntity<ApiResponse<Void>> handleThrowable(Throwable ex) {
+        return ApiResponse.<Void>error(ApiError.internal("Unexpected error")).toEntity();
+    }
+
     @ExceptionHandler(UsernameNotFoundException.class)
     public ResponseEntity<ApiResponse<Void>> handleUserNotFound() {
         return ApiResponse.<Void>error(ApiError.notFound("User not found")).toEntity();

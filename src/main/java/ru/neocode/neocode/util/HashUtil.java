@@ -9,11 +9,10 @@ public class HashUtil {
 
     private static final String ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     private static final Random RANDOM = new Random();
-    private static final int LENGTH = 32;
 
-    public String generateHash() {
+    public String generateHash(int length) {
         StringBuilder s = new StringBuilder();
-        for (int i = 0; i < LENGTH; i++) s.append(ALPHABET.charAt(RANDOM.nextInt(ALPHABET.length())));
+        for (int i = 0; i < length; i++) s.append(ALPHABET.charAt(RANDOM.nextInt(ALPHABET.length())));
         return s.toString();
     }
 }

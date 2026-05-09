@@ -327,11 +327,13 @@ Retrieves a user by their ID.
 
 ### Successful response structure
 
-| name     | data type | description |
-| -------- | --------- | ----------- |
-| id       | long      | User ID     |
-| username | String    | Username    |
-| role     | Role      | User role   |
+| name         | data type | description   |
+|--------------| --------- |---------------|
+| id           | long      | User ID       |
+| username     | String    | Username      |
+| role         | Role      | User role     |
+| email        | String    | Email address |
+| referralCode | String    | Referral code |
 
 ---
 
@@ -381,11 +383,13 @@ Retrieves a user by their username.
 
 ### Successful response structure
 
-| name     | data type | description |
-| -------- | --------- | ----------- |
-| id       | long      | User ID     |
-| username | String    | Username    |
-| role     | Role      | User role   |
+| name         | data type | description   |
+|--------------| --------- |---------------|
+| id           | long      | User ID       |
+| username     | String    | Username      |
+| role         | Role      | User role     |
+| email        | String    | Email address |
+| referralCode | String    | Referral code |
 
 ---
 

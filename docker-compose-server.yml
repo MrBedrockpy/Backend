@@ -1,0 +1,34 @@
+services:
+  db:
+    image: postgres:15
+    container_name: neocode_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: neocode
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 12321
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d neocode"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    image: mrbedrockpy/neocode-backend:1.0
+    container_name: neocode_app
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "80:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/neocode
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: 12321
+      JWT_SECRET: 5a3903fa-96cb-45fa-b40e-1a5b1467ghfe-45fa-b43e-1a5b1467abfe
+
+volumes:
+  postgres_data:

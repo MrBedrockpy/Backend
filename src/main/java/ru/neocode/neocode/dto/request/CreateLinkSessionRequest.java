@@ -14,6 +14,6 @@ public class CreateLinkSessionRequest {
     private long userId;
 
     public LinkSession toEntity() {
-        return new LinkSession(userId, HashUtil.generateHash());
+        return new LinkSession(userId, HashUtil.generateHash(32));
     }
 }
