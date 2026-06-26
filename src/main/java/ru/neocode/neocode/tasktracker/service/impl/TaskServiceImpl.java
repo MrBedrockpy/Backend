@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.neocode.neocode.tasktracker.dto.request.CreateTaskRequest;
 import ru.neocode.neocode.tasktracker.dto.request.MoveTaskRequest;
+import ru.neocode.neocode.tasktracker.dto.response.BoardColumnResponse;
 import ru.neocode.neocode.tasktracker.dto.response.TaskResponse;
 import ru.neocode.neocode.tasktracker.entity.BoardColumn;
 import ru.neocode.neocode.tasktracker.entity.Task;

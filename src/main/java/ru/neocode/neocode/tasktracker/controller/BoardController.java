@@ -9,6 +9,8 @@ import ru.neocode.neocode.tasktracker.dto.response.BoardResponse;
 import ru.neocode.neocode.tasktracker.service.BoardService;
 import ru.neocode.neocode.util.response.ApiResponse;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/tasktracker/board")
@@ -19,6 +21,11 @@ public class BoardController {
     @PostMapping
     public ResponseEntity<ApiResponse<BoardResponse>> create(@RequestBody CreateBoardRequest request) {
         return this.service.create(request).toEntity();
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<ApiResponse<List<BoardResponse>>> findAll() {
+        return this.service.findAll().toEntity();
     }
 
     @GetMapping(params = "id")

@@ -5,9 +5,13 @@ import ru.neocode.neocode.tasktracker.dto.request.RenameBoardRequest;
 import ru.neocode.neocode.tasktracker.dto.response.BoardResponse;
 import ru.neocode.neocode.util.response.ApiResponse;
 
+import java.util.List;
+
 public interface BoardService {
 
     ApiResponse<BoardResponse> create(CreateBoardRequest request);
+
+    ApiResponse<List<BoardResponse>> findAll();
 
     ApiResponse<BoardResponse> findById(long id);
 

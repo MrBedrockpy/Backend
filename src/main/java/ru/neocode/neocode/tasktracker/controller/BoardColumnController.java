@@ -24,7 +24,7 @@ public class BoardColumnController {
 
     @GetMapping(params = "id")
     public ResponseEntity<ApiResponse<BoardColumnResponse>> findById(@RequestParam(name = "id") long id) {
-        return this.service.getById(id).toEntity();
+        return this.service.findById(id).toEntity();
     }
 
     @PostMapping("/rename")

@@ -1,6 +1,6 @@
-# 📋 Task tracker API Documentation
+# Task tracker API Documentation
 
-## 🗂️ POST /tasktracker/board
+## POST /tasktracker/board
 
 Creates a new board.
 
@@ -55,7 +55,52 @@ Creates a new board.
 
 ---
 
-## 📥 GET /tasktracker/board?id={id}
+## GET /tasktracker/board/all
+
+Retrieves a all boards.
+
+---
+
+### Possible responses
+
+| HTTP code | success | error message   |
+| --------- | ------- | --------------- |
+| 200       | true    | —               |
+
+---
+
+### Successful response structure
+
+| name    | data type | description |
+| ------- | --------- |-------------|
+| columns | List      | Boards      |
+
+---
+
+### Success response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "title": "My Board",
+      "columns": []
+    },
+    {
+      "id": 2,
+      "title": "Other Board",
+      "columns": []
+    }
+  ],
+  "error": null
+}
+```
+
+---
+
+## GET /tasktracker/board?id={id}
 
 Retrieves a board by ID.
 
@@ -102,7 +147,7 @@ Retrieves a board by ID.
 
 ---
 
-## ✏️ POST /tasktracker/board/rename
+## POST /tasktracker/board/rename
 
 Renames a board.
 
@@ -145,7 +190,7 @@ Renames a board.
 
 ---
 
-## 🗑️ DELETE /tasktracker/board?id={id}
+## DELETE /tasktracker/board?id={id}
 
 Deletes a board by ID.
 
@@ -178,7 +223,7 @@ Deletes a board by ID.
 
 ---
 
-## 📦 POST /tasktracker/column
+## POST /tasktracker/column
 
 Creates a column in a board.
 
@@ -237,7 +282,7 @@ Creates a column in a board.
 
 ---
 
-## 📥 GET /tasktracker/column?id={id}
+## GET /tasktracker/column?id={id}
 
 Retrieves column by ID.
 
@@ -275,7 +320,7 @@ Retrieves column by ID.
 
 ---
 
-## ✏️ POST /tasktracker/column/rename
+## POST /tasktracker/column/rename
 
 Renames a column.
 
@@ -320,7 +365,7 @@ Renames a column.
 
 ---
 
-## 🔀 POST /tasktracker/column/move
+## POST /tasktracker/column/move
 
 Moves column to a new position.
 
@@ -366,7 +411,7 @@ Moves column to a new position.
 
 ---
 
-## 🗑️ DELETE /tasktracker/column?id={id}
+## DELETE /tasktracker/column?id={id}
 
 Deletes column by ID.
 
@@ -399,7 +444,7 @@ Deletes column by ID.
 
 ---
 
-## 🧩 POST /tasktracker/task
+## POST /tasktracker/task
 
 Creates a task.
 
@@ -464,7 +509,7 @@ Creates a task.
 
 ---
 
-## 📥 GET /tasktracker/task?id={id}
+## GET /tasktracker/task?id={id}
 
 Retrieves task by ID.
 
@@ -502,7 +547,7 @@ Retrieves task by ID.
 
 ---
 
-## 🔀 POST /tasktracker/task/move
+## POST /tasktracker/task/move
 
 Moves task between columns.
 

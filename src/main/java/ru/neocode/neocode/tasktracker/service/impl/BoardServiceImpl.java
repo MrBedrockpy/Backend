@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.neocode.neocode.tasktracker.dto.request.CreateBoardRequest;
 import ru.neocode.neocode.tasktracker.dto.request.RenameBoardRequest;
+import ru.neocode.neocode.tasktracker.dto.response.BoardColumnResponse;
 import ru.neocode.neocode.tasktracker.dto.response.BoardResponse;
 import ru.neocode.neocode.tasktracker.entity.Board;
 import ru.neocode.neocode.tasktracker.repository.BoardRepo;
@@ -12,6 +13,7 @@ import ru.neocode.neocode.util.response.ApiError;
 import ru.neocode.neocode.util.response.ApiResponse;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -27,6 +29,12 @@ public class BoardServiceImpl implements BoardService {
                 .build();
         boardRepo.save(board);
         return ApiResponse.success(BoardResponse.from(board));
+    }
+
+    @Override
+    public ApiResponse<List<BoardResponse>> findAll() {
+        return ApiResponse.success(boardRepo.findAll().stream()
+                .map(BoardResponse::from).toList());
     }
 
     @Override

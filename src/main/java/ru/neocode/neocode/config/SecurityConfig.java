@@ -41,7 +41,7 @@ public class SecurityConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:5173", "http://localhost:5174", "https://zero1-st.tech", "https://www.zero1-st.tech")
+                        .allowedOrigins("http://localhost:5173", "http://localhost:5174", "https://task.zero1-st.tech")
                         .allowedMethods("*").allowedHeaders("*").allowCredentials(true);
             }
         };

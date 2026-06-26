@@ -3,6 +3,7 @@ package ru.neocode.neocode.tasktracker.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.neocode.neocode.tasktracker.dto.response.BoardColumnResponse;
+import ru.neocode.neocode.tasktracker.dto.response.BoardResponse;
 import ru.neocode.neocode.tasktracker.entity.Board;
 import ru.neocode.neocode.tasktracker.entity.BoardColumn;
 import ru.neocode.neocode.tasktracker.repository.BoardColumnRepo;
@@ -33,7 +34,7 @@ public class BoardColumnServiceImpl implements BoardColumnService {
     }
 
     @Override
-    public ApiResponse<BoardColumnResponse> getById(long id) {
+    public ApiResponse<BoardColumnResponse> findById(long id) {
         return columnRepo.findById(id)
                 .map(BoardColumnResponse::from)
                 .map(ApiResponse::success)

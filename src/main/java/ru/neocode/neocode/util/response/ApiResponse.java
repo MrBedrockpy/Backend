@@ -9,8 +9,8 @@ import org.springframework.http.ResponseEntity;
 
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class ApiResponse<T> {
 
     private boolean success;

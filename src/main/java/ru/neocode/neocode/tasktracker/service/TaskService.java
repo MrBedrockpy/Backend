@@ -2,8 +2,11 @@ package ru.neocode.neocode.tasktracker.service;
 
 import ru.neocode.neocode.tasktracker.dto.request.CreateTaskRequest;
 import ru.neocode.neocode.tasktracker.dto.request.MoveTaskRequest;
+import ru.neocode.neocode.tasktracker.dto.response.BoardResponse;
 import ru.neocode.neocode.tasktracker.dto.response.TaskResponse;
 import ru.neocode.neocode.util.response.ApiResponse;
+
+import java.util.List;
 
 public interface TaskService {
 
